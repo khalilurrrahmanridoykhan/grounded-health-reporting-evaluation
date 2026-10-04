@@ -10,7 +10,7 @@ more accurate and trustworthy than prompting a model directly?
 |---|---|
 | `LLM Public Health Reporting Trustworthiness — Q1 Paper Plan.md` | Original paper plan |
 | `docs/novelty/literature-gap.md` | Phase 0 novelty search log, closest-work table, gap statement |
-| `protocol/protocol-draft.md` | Study protocol draft v0.1 (for co-author review, then OSF registration) |
+| `protocol/protocol-draft.md` | Study protocol draft v0.1 (single author; OSF registration once frozen) |
 | `docs/collaboration/solo-author-guide.md` | Solo-author routes, what to ask raters and helpers, message templates |
 
 ## Status
