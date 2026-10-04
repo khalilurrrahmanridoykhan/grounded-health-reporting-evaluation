@@ -3,7 +3,7 @@
 **Title:** Grounded Language Models for Routine Health Reporting: A Comparative
 Evaluation of Factuality, Data-Quality Detection, and Abstention
 
-**Status:** DRAFT for co-author review. Not frozen. Items marked `[DECIDE]`
+**Status:** DRAFT (single author). Not frozen. Items marked `[DECIDE]`
 need a decision by the study team; items marked `[PILOT]` are set after the
 pilot. Once frozen, this document is registered (OSF) before any held-out run,
 and every later change goes in the deviation log (Section 14).
@@ -124,7 +124,7 @@ values are unchanged.
   different org-unit structures; hashed and frozen before any held-out run.
   Nobody tunes prompts on it.
 - Target held-out size `[PILOT]`: proposed 120 scenarios (≈ 12–13 per defect
-  code, clean included), finalised with the statistician after the pilot.
+  code, clean included), finalised after the pilot (optional review by a statistician).
 
 ## 6. Output format (all arms)
 
@@ -152,7 +152,7 @@ separately, by a rater who is not doing the usefulness rating for that output.
    per output, adjudicated by blinded human reviewers against the evidence
    rubric (Section 9).
 
-**Co-primary rule** `[DECIDE with statistician]`: proposed — H1 is supported
+**Co-primary rule** `[DECIDE]`: proposed — H1 is supported
 only if both primary outcomes favour grounding; each tested at α = 0.025
 (Bonferroni over two).
 
@@ -201,7 +201,10 @@ unresolved, by a third rater. Raters are not told the hypotheses beyond what
 is needed. Report Cohen's / Fleiss' κ (or Gwet's AC1 where prevalence is
 extreme) before adjudication.
 
-**Domain lead role.** The study's domain lead (who builds the systems) writes
+Raters are contributors acknowledged in the paper (Section 15), not
+co-authors.
+
+**Domain lead role.** The author (who builds the systems) writes
 scenarios and the rubric, trains raters on development-set examples, and does
 **not** rate held-out outputs.
 
@@ -261,21 +264,45 @@ size to reach significance.
 |---|---|---|---|---|
 | | | | | |
 
-## 15. Roles (CRediT, draft)
+## 15. Authorship and roles
 
-| Person | Role |
+**Single-author study.** Khalilur Rahman Ridoy Khan: conceptualisation,
+methodology, software, data curation, scenario design, formal analysis,
+writing (all CRediT roles).
+
+Contributors who do not meet ICMJE authorship criteria are named in the
+Acknowledgements with what they did:
+
+| Contributor | Contribution (acknowledged, not authors) |
 |---|---|
-| Khalilur Rahman Ridoy Khan | Conceptualisation, methodology, software, data curation, scenario design, writing — original draft |
-| Rater 1, Rater 2 (external) | Investigation (blinded adjudication), validation, writing — review & editing |
-| Statistician / methods co-author | Formal analysis plan, methodology, writing — review & editing |
-| Senior co-author | Supervision, methodology review, writing — review & editing |
-| Data owner contact (if real data) | Resources, data access, writing — review & editing |
+| External raters (2+) | Blinded claim adjudication and usefulness rating (paid or volunteer) |
+| Statistical reviewer (optional) | Review of analysis plan and code |
+| Data owner contact (if real data) | Data access permission |
+
+Raters must not draft or revise the manuscript or make design decisions; if
+they do, they qualify for authorship and must be offered it.
+
+### 15.1 Fallback if no external raters are available
+
+If no external raters can be recruited, the study is re-framed as a
+**benchmark/methods study** and:
+- Numerical fidelity, defect detection and abstention (all scored
+  automatically against code-generated references) become the primary
+  outcomes.
+- Unsupported-claim rate is rated by the author using a blinding tool
+  (outputs shuffled, arm and model hidden, normalised format), with a
+  repeat rating of a random 20% after ≥ 2 weeks to report intra-rater
+  agreement; two LLM judges from different families are reported as
+  secondary, with their agreement against the author's labels.
+- Usefulness ratings (H3) are dropped or labelled exploratory.
+- The limitations section states that there was no independent human
+  review, and the paper makes no claim about operational safety.
 
 ## 16. Timeline (indicative)
 
 | Month | Work |
 |---|---|
-| 1 | Finish novelty search; recruit co-authors; settle data route and ethics |
+| 1 | Finish novelty search; recruit raters (acknowledged); settle data route and ethics |
 | 2 | Freeze defect taxonomy, rubric, output format; build library + generator with tests |
 | 3 | Implement arms; pilot on development set; rater training; sample size |
 | 4 | Freeze and register protocol; generate and hash held-out set; run |
